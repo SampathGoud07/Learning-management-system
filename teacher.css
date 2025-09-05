@@ -1,0 +1,42 @@
+ * { box-sizing: border-box; }
+body {
+    font-family: var(--font-body);
+    color: var(--font-color);
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+#wrapper {
+    display: flex;
+}
+
+
+#sidebar {
+      width: clamp(100px,250px,250px);
+      background: linear-gradient(to bottom, #004080, #002244);
+      color: #fff;
+      padding-top: 20px;
+	  height:100vh;
+    }
+    #sidebar a {
+      color: #fff;
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+    }
+    #sidebar a:hover { background: #0066cc; }
+
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+/* Hide all sections except active */
+.section {
+    display: none;
+}
+.section.active {
+    display: block;
+}

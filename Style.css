@@ -1,0 +1,132 @@
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #f5f7fa;
+    margin: 0;
+	font-family: var(--font-body);
+	color: var(--font-color);
+	}
+  
+   .hero-wrapper {
+    background: url("digital.jpg");
+	background-size: cover;       
+	background-position: center;  
+	background-repeat: no-repeat;
+	width: 100%;
+    min-height: 80vh;
+    position: relative;
+    color: white;
+    }
+	
+  .custom-navbar {
+	 padding: 5px 5px;
+    background: rgba(0, 0, 0, 0.6);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .custom-navbar .navbar-brand {
+    margin-left: 20px;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+
+  .custom-navbar .nav-link {
+    color: white;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .custom-navbar .nav-link:hover {
+    color: #FFFAF0;
+  }
+
+
+
+ .hero {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+	  color: white;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+	   color: white;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+
+  .features {
+    padding: 50px 20px;
+  }
+
+  .features h2 {
+    font-weight: 600;
+    color: #004080;
+    margin-bottom: 40px;
+  }
+
+  .features .card {
+    margin: 15px;
+    border-radius: 20px;
+    border: none;
+    padding: 30px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .features .card:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .features .card h5 {
+    font-weight: 600;
+    color: #0074D9;
+  }
+
+  .features .card i {
+    font-size: 2rem;
+    color: #5e35b1;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  footer {
+    background: #00264d;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .features .card {
+      margin: 10px 0;
+    }
+
+    .features .card.icon-card {
+      border: none;
+      border-radius: 15px;
+    }
+  }
+</style>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teacher Dashboard</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="teacher.css" />
+</head>
+<body>
+<div id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-dark text-white p-3" id="sidebar">
+    <h3 class="text-center">Teacher</h3>
+    <ul class="nav flex-column">
+      <li class="nav-item"><a href="#" class="nav-link text-white" data-section="dashboard">Dashboard</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white" data-section="courses">My Courses</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white" data-section="assignments">Assignments</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white" data-section="submissions">Submissions</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white" data-section="students">Students</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white" data-section="announcements">Announcements</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white" data-section="profile">Profile</a></li>
+    </ul>
+  </div>
+
+  <!-- Page Content -->
+  <div class="container-fluid p-4">
+  
+    <!-- Dashboard Overview -->
+    <div id="dashboard" class="section">
+      <h1 class="mb-4">Dashboard Overview</h1>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5>Active Classes</h5>
+              <p>3</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5>Pending Submissions</h5>
+              <p>10</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5>Announcements</h5>
+              <p>2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Courses -->
+    <div id="courses" class="section">
+      <h1 class="mb-4">My Courses</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Students</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mathematics 101</td>
+            <td>30</td>
+            <td><button class="btn btn-primary btn-sm">Edit</button></td>
+          </tr>
+          <tr>
+            <td>Physics 101</td>
+            <td>25</td>
+            <td><button class="btn btn-primary btn-sm">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Assignments -->
+    <div id="assignments" class="section">
+      <h1 class="mb-4">Assignments</h1>
+      <p>Create, manage and view assignments.</p>
+      <button class="btn btn-success">Create New Assignment</button>
+    </div>
+
+    <!-- Submissions -->
+    <div id="submissions" class="section">
+      <h1 class="mb-4">Submissions</h1>
+      <p>Review student submissions for your courses.</p>
+    </div>
+
+    <!-- Students -->
+    <div id="students" class="section">
+      <h1 class="mb-4">Students</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Course</th>
+            <th>Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alice</td>
+            <td>Mathematics</td>
+            <td>80%</td>
+          </tr>
+          <tr>
+            <td>Bob</td>
+            <td>Physics</td>
+            <td>60%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Announcements -->
+    <div id="announcements" class="section">
+      <h1 class="mb-4">Announcements</h1>
+      <p>Post new announcements to students.</p>
+      <button class="btn btn-primary">Create Announcement</button>
+    </div>
+
+    <!-- Profile -->
+    <div id="profile" class="section">
+      <h1 class="mb-4">Profile</h1>
+      <form style="max-width:400px;">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" value="Teacher Name">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" value="teacher@example.com">
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Switch sections when sidebar links are clicked
+    const links = document.querySelectorAll('.nav-link[data-section]');
+    const sections = document.querySelectorAll('.section');
+
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = link.getAttribute('data-section');
+
+            // Remove active class from all sections
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Add active class to the selected section
+            document.getElementById(target).classList.add('active');
+        });
+    });
+
+    // Default show dashboard section
+    document.getElementById('dashboard').classList.add('active');
+});
+</script>
+</body>
+</html>

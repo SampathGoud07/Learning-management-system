@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Role-Based Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f4f6f8;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .login-container {
+      max-width: 450px;
+      margin: auto;
+      margin-top: 8%;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .role-btns .btn {
+      margin: 5px;
+      width: 100px;
+    }
+    .role-btns .btn.active {
+      background-color: #0d6efd;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h4 class="text-center mb-4">Login</h4>
+  
+  <div class="mb-3 text-center role-btns">
+    <label class="form-label d-block mb-2">Select Role:</label>
+    <button type="button" class="btn btn-outline-primary" onclick="selectRole('student', this)">Student</button>
+    <button type="button" class="btn btn-outline-primary" onclick="selectRole('teacher', this)">Teacher</button>
+    <button type="button" class="btn btn-outline-primary" onclick="selectRole('admin', this)">Admin</button>
+    <input type="hidden" id="role" name="role" value="">
+  </div>
+
+  <form id="loginForm">
+    <div class="mb-3">
+      <label for="email" class="form-label">Username / Email</label>
+      <input type="text" class="form-control" id="email" name="email" placeholder="Enter username or email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
+</div>
+
+<script>
+  // Function to select a role
+  function selectRole(role, btn) {
+    document.getElementById('role').value = role;
+
+    // Remove active class from all buttons
+    document.querySelectorAll('.role-btns .btn').forEach(button => button.classList.remove('active'));
+    // Add active class to clicked button
+    btn.classList.add('active');
+  }
+
+  // Form submit handler
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const selectedRole = document.getElementById('role').value;
+
+    if (!selectedRole) {
+      alert('Please select a role before logging in.');
+      return;
+    }
+
+    // Normally, authentication is done via backend here.
+    // For demo, we redirect based on selectedRole.
+    if (selectedRole === 'student') {
+      window.location.href = 'student.html';
+    } else if (selectedRole === 'teacher') {
+      window.location.href = 'teacher.html';
+    } else if (selectedRole === 'admin') {
+      window.location.href = 'admin.html';
+    }
+  });
+</script>
+
+</body>
+</html>
